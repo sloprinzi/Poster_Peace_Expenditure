@@ -1,0 +1,152 @@
+---
+main_topsize: 0.2 #percent coverage of the poster
+main_bottomsize: 0.1
+#ESSENTIALS
+title: '**Does Military Spending Lead to Peace?**'
+author:
+  - name: '**Siena Loprinzi**'
+    affil: 1
+    main: true
+    email: sl4717a@student.american.edu
+affiliation:
+  - num: 1
+    address: American University, School of International Service 
+main_findings:
+  - "Less Military Leads to Higher Peace"
+output: 
+  posterdown::posterdown_betterport:
+    self_contained: true
+    pandoc_args: --mathjax
+    number_sections: false
+link-citations: true
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      tidy = FALSE,
+                      message = FALSE,
+                      fig.align = 'center',
+                      out.width = "100%")
+options(knitr.table.format = "html") 
+
+
+setwd("/Users/sienaloprinzi/Desktop/Stats/11 - Poster")
+
+
+library(tidyverse)
+library(knitr)
+library(stargazer) # regression tables
+library(kableExtra)
+library(ggtech)
+
+# QOG data
+qog = read_csv('qog.csv')
+
+
+df1 = qog %>%
+  select(cname_qog, 
+         bicc_milexp, 
+         mad_gdppc,
+         gpi_conf) %>%
+  mutate(log_GDP = log10(mad_gdppc)) %>%
+  select (-mad_gdppc)
+
+df2 = df1 %>%
+  rename(
+    Country = cname_qog,
+    Military.Expenditure = bicc_milexp,
+    GDP = log_GDP,
+    Conflict = gpi_conf)
+
+p1 = qog %>%
+  select(cname_qog, gpi_gpi) %>%
+  rename(
+    Country = cname_qog)
+
+p2 = p1 %>% 
+  mutate(Peace = 6 - gpi_gpi) %>%
+  select(-gpi_gpi)
+
+df3 = 
+  left_join(df2, p2,
+            by = join_by(Country))
+
+
+reg1 <- lm(data = na.omit(df3), formula = Peace ~ Military.Expenditure + 
+                    GDP + Conflict)
+
+
+
+
+```
+
+# Introduction
+
+With events like the war in Ukraine and post-COVID food insecurity and political instability, peacefulness has declined to its lowest levels in 15 years^[Pandit, P. (2022, December 19). Peacefulness declines to lowest level in 15 years. Vision of Humanity. https://www.visionofhumanity.org/peacefulness-declines-to-lowest-level-in-15-years/]. In 2021 the economic impact of violence on the global economy was $16.5 trillion, about ten percent of the world's total economic activity or $2,117 per person^[Institute for Economics & Peace (2022, A). Global Peace Index 2022: Measuring Peace in a Complex World, Sydney. Available from: http://visionofhumanity.org/resources (accessed May 8, 2023).]. In these times of low levels of peace, countries like the US, China, and Iran have increased their military spending, however will increased military expenditures lead to peace?
+
+
+Since 2008, 112 countries have reduced their armed forces, while 42 countries have increased theirs leading to an overall increase in global military spending. With this increase in military spending but peace being at the lowest levels in years, what is the relationship between peace and military spending? This study aims to explore the following question: 
+
+
+**_Is there a relationship between peace and military expenditures?_** 
+
+
+We hypothesize a negative correlation between peace and military expenditures. Our null hypothesis is that there is no relationship between these two factors. 
+
+
+# Data and Methods
+
+The data in this study comes from the Quality of Government (QoG) dataset^[Teorell, Jan, Aksel Sundström, Sören Holmberg, Bo Rothstein, Natalia Alvarado Pachon, Cem Mert Dalli & Yente Meijers. 2023. The Quality of Government Standard Dataset, version Jan23. University of Gothenburg: The Quality of Government Institute, https://www.gu.se/en/quality-government doi:10.18157/qogstdjan23]. This data compiles data from more than 100 data sources around the world. In particular, the Global Peace Index^[Institute for Economics and Peace. (2022b). Global peace index 2022: Measuring peace in a
+complex world [Accessed 01-09-2022]. http://visionofhumanity.org/resources] and the Global Militarization Index^[Bayer, Markus and Paul Rohleder. (2022). Global Militarization Index 2022. Bonn International
+Center for Conversion BICC. https://gmi.bicc.de/] studies and datasets were used from the overall QoG dataset. 
+
+
+From the data sets above, the variables Global Peace Index (GPI) and Military Expenditure were chosen. To mitigate bias due to confounding variables, GDP per Capita and Ongoing Conflict were also looked at. 
+
+
+
+# Results
+
+```{r, results = 'asis', ECHO = FALSE}
+stargazer(reg1, type = "html", keep.stat = 'n',
+  title = "Regression Model Predicting Country Peace",
+  model.numbers = FALSE,
+  dep.var.caption = " ",
+  dep.var.labels = "Peace",
+  notes.align = "l"
+  )
+
+```
+
+The findings suggest that military spending not only has a small negative correlation with peace, but increased military spending is also not statistically significant. This means that, although correlation does not equal causation, as military spending increases in the data, peace slightly decreases. As they are not statistically significant, this study cannot determine if the relationship between these two variables are not due to chance or random variation in the data.
+
+The results also show the correlations between peace and GDP, and peace and conflict. It is unsurprising that conflict is both negatively correlated to peace and statistically significant; one of the definitions of peace is a lack of conflict. However, possibly the most important part of this study is that GDP is both positively correlated to peace and statistically significant. 
+
+```{r, results = 'asis', ECHO = FALSE, fig.cap = "Graph of the correlation between military spending and peace"}
+  ggplot(df3) +
+  geom_point(aes(x = Peace, y = Military.Expenditure)) +
+  geom_smooth(aes(x = Peace, y = Military.Expenditure), method = "lm", se = FALSE) +
+  labs(
+    x = "Peace",
+    y = "Military Expenditure"
+  ) +
+  theme_tech(theme = "airbnb") +
+  theme(
+    plot.title = element_text(color = "#54B5FB", hjust = 0.5),
+    legend.position = "top",
+    legend.justification = "center"
+  )
+
+```
+
+The graph above gives the visualization for the slight negative correlation between military spending and peace. There are always exceptions, but for this visual trend shows that countries with lower spending on their military is correlated with higher levels of peace. 
+
+# Conclusion
+
+The budget for the United States military is $1.77 Trillion this year ^[USASpending.gov. (2023, June 29). Department of Defense Spending. USAspending.gov. https://www.usaspending.gov/agency/department-of-defense?fy=2023], an increase from last year which was more than the next 10 countries combined on military spending ^[Peter G. Peterson Foundation. (2023, April 24). The United States spends more on defense than the next 10 countries combined. Peter G. Peterson Foundation. https://www.pgpf.org/blog/2023/04/the-united-states-spends-more-on-defense-than-the-next-10-countries-combined]. Is this spending helpful? The data would show that there is a negative correlation between peace and military spending, although more data will need to be found in future studies to ascertain if this is statistically significance. However, peace was positively correlated with GDP and statistically significant. So should money continue to go towards military expenditures or could it be better used elsewhere to increase peace and GDP?
+
+As the negative correlation and peace was not statistically significant, future studies should continue to look at factors that could impact peace and military expenditures. This could also lead to further studies with more data available to create a higher chance of finding a statistically significant correlation. 
+
+
+# References
