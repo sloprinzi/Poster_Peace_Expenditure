@@ -28,7 +28,7 @@ Center for Conversion BICC. https://gmi.bicc.de/] studies and datasets were used
 From the data sets above, the variables Global Peace Index (GPI) and Military Expenditure were chosen. To mitigate bias due to confounding variables, GDP per Capita and Ongoing Conflict were also looked at. 
 
 
-To try the example yourself, you can find the dataset above labeled `ssa_water.Rdata` and the codebook labeled ``
+To try the example yourself, you can find the dataset above labeled `qog.csv`.
 
 
 ## The Poster
