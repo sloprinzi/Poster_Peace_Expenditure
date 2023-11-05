@@ -33,4 +33,4 @@ To try the example yourself, you can find the dataset above labeled `ssa_water.R
 
 ## The Poster
 
-_**To view the poster, please click [here]([https://sloprinzi.github.io/Presentation_Refugee_Ages/#1](https://github.com/sloprinzi/Poster_Peace_Expenditure/blob/main/Does%20Military%20Spending%20Lead%20to%20Peace_.pdf)https://github.com/sloprinzi/Poster_Peace_Expenditure/blob/main/Does%20Military%20Spending%20Lead%20to%20Peace_.pdf).**_ 
+_**To view the presentation, please click [here](https://github.com/sloprinzi/Poster_Peace_Expenditure/blob/main/Does%20Military%20Spending%20Lead%20to%20Peace_.pdf).**_ 
