@@ -35,7 +35,7 @@ _**To view the presentation, please click [here](https://github.com/sloprinzi/Po
 
 [^1]:Pandit, P. (2022, December 19). Peacefulness declines to lowest level in 15 years. Vision of Humanity. <https://www.visionofhumanity.org/peacefulness-declines-to-lowest-level-in-15-years/>
 [^2]:Institute for Economics & Peace (2022, A). Global Peace Index 2022: Measuring Peace in a Complex World, Sydney. <http://visionofhumanity.org/resources>
-[^3]:Teorell, Jan, Aksel Sundström, Sören Holmberg, Bo Rothstein, Natalia Alvarado Pachon, Cem Mert Dalli & Yente Meijers. 2023. The Quality of Government Standard Dataset, version Jan23. University of Gothenburg: The Quality of Government Institute, <https://www.gu.se/en/quality-government doi:10.18157/qogstdjan23>
+[^3]:Teorell, Jan, Aksel Sundström, Sören Holmberg, Bo Rothstein, Natalia Alvarado Pachon, Cem Mert Dalli & Yente Meijers. 2023. The Quality of Government Standard Dataset, version Jan23. University of Gothenburg: The Quality of Government Institute, <https://www.gu.se/en/quality-government> doi:10.18157/qogstdjan23
 [^4]:Institute for Economics and Peace. (2022b). Global peace index 2022: Measuring peace in a
 complex world. <http://visionofhumanity.org/resources>
 [^5]:Bayer, Markus and Paul Rohleder. (2022). Global Militarization Index 2022. Bonn International
