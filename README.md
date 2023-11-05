@@ -26,7 +26,7 @@ The data in this study comes from the QoG dataset[^3]. This data compiles data f
 From the data sets above, the variables Global Peace Index (GPI) and Military Expenditure were chosen. To mitigate bias due to confounding variables, GDP per Capita and Ongoing Conflict were also looked at. 
 
 
-To try the example yourself, you can find the dataset above labeled `qog.csv`.
+To try the example yourself, you can find the code in the `index.rmd` file and the dataset above labeled `qog.csv`.
 
 
 ## The Poster
