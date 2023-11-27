@@ -31,7 +31,7 @@ To try the example yourself, you can find the code in the `index.rmd` file and t
 
 ## The Poster
 
-_**To view the presentation, please click [here](https://github.com/sloprinzi/Poster_Peace_Expenditure/blob/main/Does%20Military%20Spending%20Lead%20to%20Peace_.pdf).**_ 
+_**To view the presentation, please click [here](https://sloprinzi.github.io/Poster_Peace_Expenditure/).**_ 
 
 [^1]:Pandit, P. (2022, December 19). Peacefulness declines to lowest level in 15 years. Vision of Humanity. <https://www.visionofhumanity.org/peacefulness-declines-to-lowest-level-in-15-years/>
 [^2]:Institute for Economics & Peace (2022, A). Global Peace Index 2022: Measuring Peace in a Complex World, Sydney. <http://visionofhumanity.org/resources>
